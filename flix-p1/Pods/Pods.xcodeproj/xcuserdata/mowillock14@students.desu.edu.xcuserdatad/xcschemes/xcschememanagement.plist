@@ -18,21 +18,21 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>Pods-Flix-p1.xcscheme</key>
+		<key>OAuthSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>Pods-Flix-p1Tests.xcscheme</key>
+		<key>OAuthSwiftAlamofire.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
-		<key>Pods-Flix-p1UITests.xcscheme</key>
+		<key>Pods-Flix-p1.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
