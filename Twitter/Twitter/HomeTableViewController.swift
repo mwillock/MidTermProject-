@@ -20,7 +20,10 @@ class HomeTableViewController: UITableViewController {
         myRefeshControl.addTarget(self, action: #selector(loadTweet), for: .valueChanged)
         tableView.refreshControl = myRefeshControl
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.loadTweet()
+    }
     @objc func loadTweet(){
         numofTweets = 20
         let myUrl = "https://api.twitter.com/1.1/statuses/home_timeline.json"
@@ -72,7 +75,7 @@ class HomeTableViewController: UITableViewController {
     @IBAction func logOut(_ sender: Any) {
         TwitterAPICaller.client?.logout()
         self.dismiss(animated: true, completion: nil)
-        UserDefaults.standard.set(false, forKey: "userLoggedIn ")
+        UserDefaults.standard.set(false, forKey: "userLoggedIn")
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -89,6 +92,11 @@ class HomeTableViewController: UITableViewController {
         if let imageData = data{
             cell.posterView.image = UIImage(data: imageData)
         }
+        
+        cell.setRetweeted (tweetArray[indexPath.row]["retweeted"] as! Bool)
+        cell.setFavorite(tweetArray[indexPath.row]["favorited"] as! Bool)
+        cell.tweetId = tweetArray[indexPath.row]["id"] as! Int
+        
         return cell
     }
     
